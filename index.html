@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baptiste MALLET - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- Lien vers le fichier CSS -->
 </head>
 <body>
+    <!-- Entête du site avec la photo de profil et le titre -->
     <header>
         <div class="header-container">
             <img src="https://via.placeholder.com/150" alt="Baptiste Mallet" class="profile-image">
@@ -15,39 +16,57 @@
         </div>
     </header>
 
+    <!-- Corps principal du portfolio -->
     <main class="content-container">
         <!-- Section Biographie -->
         <section class="card bio">
             <h2>Biographie</h2>
-            <p>Je m'appelle Baptiste MALLET, j'ai 19 ans...</p>
+            <p>Je m'appelle Baptiste MALLET, j'ai 19 ans et je suis né le 24 novembre 2004. Actuellement, je poursuis mes études en 3ème année de Licence CPSS (Management du Sport) à l'ILEPs, une école reconnue pour sa spécialisation dans le domaine du sport. En parallèle de mes études, je suis en alternance chez <strong>Ecosport</strong>, une entreprise spécialisée dans le tennis et les sports de raquette, où j'apprends à conjuguer théorie et pratique dans un environnement professionnel dynamique.</p>
         </section>
 
-        <!-- Section Citation Inspirante -->
-        <section class="card quote">
-            <h2>Inspiration</h2>
-            <button id="show-quote-btn">Afficher une citation inspirante</button>
-            <div id="quote-container"></div>
+        <!-- Section Parcours Tennis -->
+        <section class="card tennis">
+            <h2>Mon Parcours Tennis</h2>
+            <p>Le tennis est ma passion depuis tout petit. J'ai atteint un classement de <strong>4/6</strong> et participé à de nombreux tournois régionaux et nationaux. Ce sport m'a appris la discipline, la compétitivité et m'a forgé une mentalité de gagnant.</p>
+        </section>
+
+        <!-- Section Autres Sports -->
+        <section class="card sports">
+            <h2>Autres Sports</h2>
+            <p>Je suis également un grand pratiquant d'autres sports tels que le <strong>football</strong>, le <strong>basket-ball</strong>, la <strong>musculation</strong>, le <strong>ski</strong> et le <strong>running</strong>. Cette polyvalence m'aide à maintenir une excellente condition physique et à développer des compétences variées.</p>
+        </section>
+
+        <!-- Section Compétences -->
+        <section class="card compétences">
+            <h2>Mes Compétences</h2>
+            <ul>
+                <li><strong>Management sportif :</strong> Gestion d'événements, marketing sportif, gestion d'équipe.</li>
+                <li><strong>Compétences numériques :</strong> Maîtrise des outils bureautiques et gestion de projet (Trello, Excel, etc.).</li>
+                <li><strong>Langues :</strong> Français (natif), Anglais (niveau intermédiaire).</li>
+                <li><strong>Gestion de la performance :</strong> Analyser les performances sportives et optimiser les résultats.</li>
+            </ul>
+        </section>
+
+        <!-- Section CV -->
+        <section class="card cv">
+            <h2>Mon CV</h2>
+            <p>Voici un lien pour télécharger mon CV en PDF :</p>
+            <a href="CV_Baptiste_MALLET.pdf" download class="cv-link">Télécharger mon CV</a>
         </section>
 
         <!-- Section Contact -->
         <section class="card contact">
             <h2>Contact</h2>
-            <form id="contact-form">
-                <label for="name">Nom:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit">Envoyer</button>
-            </form>
+            <ul>
+                <li><strong>Email :</strong> <a href="mailto:baptiste.mallet@example.com">b.mallet@ileps.fr</a></li>
+                <li><strong>Téléphone :</strong> <a href="tel:+33612345678">+33 6 47 94 94 75</a></li>
+            </ul>
         </section>
     </main>
 
+    <!-- Pied de page -->
     <footer>
         <p>© 2024 Baptiste MALLET | Portfolio</p>
     </footer>
-
-    <script src="javaScriptCode.js"></script> <!-- Lien vers le fichier JavaScript -->
 </body>
 </html>
