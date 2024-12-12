@@ -1,92 +1,58 @@
-document.addEventListener('DOMContentLoaded', function () {
+// 1. Citation Inspirante au clic
+document.getElementById("show-quote-btn").addEventListener("click", function() {
+    const quotes = [
+        "La seule façon de faire du bon travail, c'est d'aimer ce que vous faites. - Steve Jobs",
+        "N'attends pas. Le temps ne sera jamais juste. - Napoleon Hill",
+        "Ce qui ne nous tue pas nous rend plus fort. - Friedrich Nietzsche",
+        "Les champions ne se relèvent pas toujours après une chute. Ils restent debout. - Serena Williams"
+    ];
 
-    // 1. Fonction pour afficher/masquer des sections
-    function toggleSection(sectionId) {
-        const section = document.getElementById(sectionId);
-        if (section.style.display === "none") {
-            section.style.display = "block";
-        } else {
-            section.style.display = "none";
-        }
-    }
-
-    // 2. Fonction pour changer de thème (mode sombre / mode clair)
-    function toggleTheme() {
-        const body = document.body;
-        if (body.classList.contains('dark-mode')) {
-            body.classList.remove('dark-mode');
-            body.style.backgroundColor = "#f4f4f9";  // Mode clair
-            body.style.color = "#333";  // Texte sombre
-        } else {
-            body.classList.add('dark-mode');
-            body.style.backgroundColor = "#333";  // Fond sombre
-            body.style.color = "#fff";  // Texte clair
-        }
-    }
-
-    // 3. Fonction pour animer les sections au défilement
-    function animateOnScroll() {
-        const sections = document.querySelectorAll('.animate-on-scroll');
-        sections.forEach(section => {
-            const position = section.getBoundingClientRect();
-            // Si la section est visible dans la fenêtre du navigateur
-            if (position.top < window.innerHeight && position.bottom >= 0) {
-                section.classList.add('visible'); // Ajoute la classe visible pour l'animation
-            }
-        });
-    }
-
-    // 4. Effet de survol dynamique
-    function addHoverEffect() {
-        const hoverElements = document.querySelectorAll('.hover-effect');
-        hoverElements.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                item.style.transform = "scale(1.1)";  // Agrandissement de l'élément
-                item.style.transition = "transform 0.3s ease-in-out";  // Transition douce
-            });
-
-            item.addEventListener('mouseleave', () => {
-                item.style.transform = "scale(1)";  // Retour à la taille initiale
-            });
-        });
-    }
-
-    // 5. Fonction pour changer dynamiquement le contenu d'une section
-    function changeContent(sectionId, newText) {
-        const section = document.getElementById(sectionId);
-        section.innerHTML = newText;
-    }
-
-    // Initialisation : Ajout des événements et comportements
-    // Ajout d'un événement de défilement pour l'animation
-    window.addEventListener('scroll', animateOnScroll);
+    // Sélectionner une citation aléatoire
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
     
-    // Appel initial pour activer les animations dès que la page est chargée
-    animateOnScroll();
-    
-    // Appel de la fonction d'ajout d'effet de survol
-    addHoverEffect();
+    // Afficher la citation dans le div #quote
+    document.getElementById("quote-container").innerHTML = `<p>"${randomQuote}"</p>`;
+});
 
-    // Exemple d'ajout de gestion des événements pour des boutons
-    document.getElementById('toggleBio').addEventListener('click', function () {
-        toggleSection('bioSection');
+// 2. Animation au défilement des sections
+window.addEventListener("scroll", function() {
+    let elements = document.querySelectorAll('.card');
+    elements.forEach(function(element) {
+        let position = element.getBoundingClientRect();
+        
+        if (position.top >= 0 && position.bottom <= window.innerHeight) {
+            // Ajouter une classe pour animer les sections visibles
+            element.classList.add("animate");
+        } else {
+            // Retirer l'animation quand l'élément est hors de la fenêtre
+            element.classList.remove("animate");
+        }
     });
+});
 
-    document.getElementById('toggleSkills').addEventListener('click', function () {
-        toggleSection('skillsSection');
+// 3. Effet au survol des sections
+document.querySelectorAll('.card').forEach(function(card) {
+    card.addEventListener('mouseenter', function() {
+        card.classList.add('hover');
     });
-
-    document.getElementById('toggleExperience').addEventListener('click', function () {
-        toggleSection('experienceSection');
+    card.addEventListener('mouseleave', function() {
+        card.classList.remove('hover');
     });
+});
 
-    document.getElementById('toggleContact').addEventListener('click', function () {
-        toggleSection('contactSection');
-    });
+// 4. Formulaire dynamique de contact
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault();  // Empêche le rechargement de la page
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
 
-    document.getElementById('themeButton').addEventListener('click', function () {
-        toggleTheme();
-    });
-
+    if (name && email && message) {
+        alert(`Merci pour votre message, ${name}! Nous reviendrons vers vous à ${email}.`);
+        // Réinitialiser le formulaire après soumission
+        this.reset();
+    } else {
+        alert("Veuillez remplir tous les champs du formulaire.");
+    }
 });
 
