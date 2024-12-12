@@ -1,4 +1,4 @@
-/* Global */
+/* Styles généraux */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
@@ -6,122 +6,66 @@ body {
     padding: 0;
 }
 
-header {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-.header-container h1 {
-    margin: 0;
-    font-size: 3em;
-}
-
-.profile-image {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    margin: 20px 0;
-}
-
-/* Main Content */
-.content-container {
-    padding: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.card {
-    background-color: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.card h2 {
-    font-size: 2em;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.card p {
-    font-size: 1.1em;
-    color: #555;
-}
-
-.card ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.card ul li {
-    margin-bottom: 10px;
-}
-
-.card ul li a {
-    color: #0073e6;
-    text-decoration: none;
-}
-
-/* Section CV */
-.cv {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border: 2px solid #ddd;
-    text-align: center;
-}
-
-.cv-link {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #0073e6;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.1em;
-}
-
-.cv-link:hover {
-    background-color: #005bb5;
-}
-
-/* Footer */
-footer {
-    background-color: #333;
-    color: white;
-    padding: 15px;
-    text-align: center;
-}
-
-/* Animation */
+/* Effet de survol sur les sections */
 .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
+.card.hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-    .header-container h1 {
-        font-size: 2.5em;
-    }
-    
-    .profile-image {
-        width: 120px;
-        height: 120px;
-    }
+/* Effet d'animation au défilement */
+.card.animate {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 1s ease-in-out;
+}
 
-    .content-container {
-        padding: 15px;
-    }
+.card {
+    opacity: 0;
+    transform: translateY(50px);
+}
 
-    .card {
-        padding: 15px;
-    }
+/* Citation */
+.quote button {
+    padding: 10px 20px;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.quote button:hover {
+    background-color: #005bb5;
+}
+
+#quote-container {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Formulaire de contact */
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #005bb5;
 }
